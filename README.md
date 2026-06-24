@@ -27,4 +27,4 @@ and account management. This project is designed  for learning core java concept
 **How to Run**
 1. Clone the repository
 2. Open in any Java IDE (Eclipse / IntelliJ)
-3. Run Main.java
+3. Run Main.java (  on  online  compiler or Vs code)

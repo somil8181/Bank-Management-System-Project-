@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-// Custom Exception for insufficient balance
+
 class InsufficientBalanceException extends Exception {
 
     public InsufficientBalanceException(String message) {
@@ -9,7 +9,7 @@ class InsufficientBalanceException extends Exception {
     }
 }
 
-// Custom Exception for account not found
+
 class AccountNotFoundException extends Exception {
 
     public AccountNotFoundException(String message) {
@@ -17,7 +17,7 @@ class AccountNotFoundException extends Exception {
     }
 }
 
-// Account Class
+
 class Account implements Serializable {
 
     private int accountNumber;
@@ -28,7 +28,7 @@ class Account implements Serializable {
     private String ifscCode;
     private double balance;
 
-    // Constructor
+   
     public Account(int accountNumber,
                    String holderName,
                    String mobileNumber,
@@ -46,7 +46,7 @@ class Account implements Serializable {
         this.balance = balance;
     }
 
-    // Getter Methods
+    
     public int getAccountNumber() {
         return accountNumber;
     }
@@ -74,12 +74,12 @@ class Account implements Serializable {
         return balance;
     }
 
-    // Deposit Method
+  
     public void deposit(double amount) {
         balance += amount;
     }
 
-    // Withdraw Method
+    
     public void withdraw(double amount)
             throws InsufficientBalanceException {
 
@@ -92,7 +92,7 @@ class Account implements Serializable {
         balance -= amount;
     }
 
-    // Display Account Details
+   
     @Override
     public String toString() {
 
@@ -108,14 +108,14 @@ class Account implements Serializable {
     }
 }
 
-// Bank Class
+
 class Bank {
 
     private ArrayList<Account> accounts;
 
     private final String FILE_NAME = "accounts.dat";
 
-    // Constructor
+    
     public Bank() {
 
         accounts = new ArrayList<>();
@@ -123,7 +123,7 @@ class Bank {
         loadAccounts();
     }
 
-    // Create Account
+    
     public void createAccount(Account account) {
 
         accounts.add(account);
@@ -131,7 +131,7 @@ class Bank {
         saveAccounts();
     }
 
-    // Find Account
+    
     public Account findAccount(int accountNumber)
             throws AccountNotFoundException {
 
@@ -147,7 +147,7 @@ class Bank {
                 "Account Not Found!");
     }
 
-    // Deposit Money
+    
     public void depositMoney(int accountNumber,
                              double amount)
             throws AccountNotFoundException {
@@ -167,7 +167,7 @@ class Bank {
         System.out.println("----------------------------------");
     }
 
-    // Withdraw Money
+   
     public void withdrawMoney(int accountNumber,
                               double amount,
                               String withdrawType)
@@ -192,7 +192,7 @@ class Bank {
         System.out.println("-----------------------------------");
     }
 
-    // Display All Accounts
+    
     public void displayAccounts() {
 
         if (accounts.isEmpty()) {
@@ -208,7 +208,7 @@ class Bank {
         }
     }
 
-    // Save Accounts
+    
     private void saveAccounts() {
 
         try {
@@ -229,7 +229,7 @@ class Bank {
         }
     }
 
-    // Load Accounts
+   
     @SuppressWarnings("unchecked")
     private void loadAccounts() {
 
@@ -261,7 +261,7 @@ class Bank {
     }
 }
 
-// Main Class
+
 public class Main {
 
     public static void main(String[] args) {
@@ -305,7 +305,7 @@ public class Main {
 
                 switch (choice) {
 
-                    // Create Account
+                    
                     case 1:
 
                         System.out.print(
@@ -323,7 +323,7 @@ public class Main {
                         System.out.print("Enter Mobile Number: ");
                         String mobile = sc.nextLine();
 
-                        // DOB Input
+                        
                         System.out.print(
                                 "Enter DOB (DD/MM/YYYY): ");
 
@@ -363,7 +363,7 @@ public class Main {
 
                         break;
 
-                    // Deposit
+                   
                     case 2:
 
                         System.out.print(
@@ -383,7 +383,7 @@ public class Main {
 
                         break;
 
-                    // Withdraw
+                    
                     case 3:
 
                         System.out.print(
@@ -413,14 +413,14 @@ public class Main {
 
                         break;
 
-                    // View Accounts
+                    
                     case 4:
 
                         bank.displayAccounts();
 
                         break;
 
-                    // Exit
+                   
                     case 5:
 
                         System.out.println(
